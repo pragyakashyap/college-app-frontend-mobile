@@ -36,24 +36,24 @@ class _RegisterationPageState extends State<RegisterationPage> {
                     padding: const EdgeInsets.only(
                         top: 43.0, left: 113, right: 112, bottom: 0),
                     child: CircleAvatar(
-                        backgroundColor: Color(0xFFC4C4C4),
-                        radius: 80,
-                        child: _image != null
-                            ? ClipRRect(
-                                borderRadius: BorderRadius.circular(80),
-                                child: Image.file(_image,
-                                    width: 150, height: 150, fit: BoxFit.cover),
-                              )
-                            : CircleAvatar(
-                                backgroundColor: Colors.grey,
-                                radius: 80,
-                              ),
-                              ),
+                          backgroundColor: Color(0xFFC4C4C4),
+                          radius: 80,
+                          child: _image != null
+                              ? ClipRRect(
+                                  borderRadius: BorderRadius.circular(80),
+                                  child: Image.file(_image,
+                                      width: 150, height: 150, fit: BoxFit.cover),
+                                )
+                              : CircleAvatar(
+                                  backgroundColor: Colors.grey,
+                                  radius: 80,
+                                ),
+                                ),
                               ),
                 Positioned(
                     width: 32,
                     height: 32,
-                    left: 215,
+                    left: 273,
                     top: 165,
                     child: GestureDetector(
                       onTap: () {
