@@ -89,7 +89,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
 
                 //stepper widget
                 Theme(
-                  data: ThemeData(primaryColor: Color(0xFF03AFB7)),
+                  data: ThemeData(canvasColor: Color(0xFF03AFB7)),
                   child: Stepper(
                     controlsBuilder: (BuildContext context,
                         {VoidCallback onStepContinue,
