@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend/Screens/Registeration_screen%202.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+
 
 class RegisterationPage extends StatefulWidget {
   @override
@@ -15,7 +18,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
   imgfromGallery() async {
     print('picker is called');
     PickedFile image = await imgpicker.getImage(source: ImageSource.gallery);
-    
+
     setState(() {
       _image = image;
     });
@@ -33,7 +36,7 @@ class _RegisterationPageState extends State<RegisterationPage> {
         body: Container(
           color: Color(0xFF393E46),
           child: SingleChildScrollView(
-                      child: Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: 30),
@@ -125,7 +128,8 @@ class _RegisterationPageState extends State<RegisterationPage> {
                         ),
                         content: Row(
                           children: [
-                            Icon(Icons.account_circle, color: Color(0xFF8E8E8E)),
+                            Icon(Icons.account_circle,
+                                color: Color(0xFF8E8E8E)),
                             SizedBox(width: 10.0),
                             Expanded(
                               child: TextFormField(
@@ -146,7 +150,8 @@ class _RegisterationPageState extends State<RegisterationPage> {
                         ),
                         content: Row(
                           children: [
-                            Icon(Icons.account_circle, color: Color(0xFF8E8E8E)),
+                            Icon(Icons.account_circle,
+                                color: Color(0xFF8E8E8E)),
                             SizedBox(width: 10.0),
                             Expanded(
                               child: TextFormField(
@@ -167,7 +172,8 @@ class _RegisterationPageState extends State<RegisterationPage> {
                         ),
                         content: Row(
                           children: [
-                            Icon(Icons.account_circle, color: Color(0xFF8E8E8E)),
+                            Icon(Icons.account_circle,
+                                color: Color(0xFF8E8E8E)),
                             SizedBox(width: 10.0),
                             Expanded(
                               child: TextFormField(
@@ -188,7 +194,8 @@ class _RegisterationPageState extends State<RegisterationPage> {
                         ),
                         content: Row(
                           children: [
-                            Icon(Icons.account_circle, color: Color(0xFF8E8E8E)),
+                            Icon(Icons.account_circle,
+                                color: Color(0xFF8E8E8E)),
                             SizedBox(width: 10.0),
                             Expanded(
                               child: TextFormField(
@@ -217,6 +224,24 @@ class _RegisterationPageState extends State<RegisterationPage> {
                     },
                   ),
                 ),
+                Align(
+                  alignment: Alignment.bottomRight,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15.0),
+                                    child: IconButton(
+                    alignment: Alignment.center,
+                    color: Colors.white,
+                      icon: Icon(CupertinoIcons.arrow_right_circle,
+                      size: 30.0,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PinSetup()),
+                        );
+                      }),
+                                  ),
+                )
               ],
             ),
           ),
