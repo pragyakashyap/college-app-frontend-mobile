@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/Screens/Registeration_screen%201.dart';
+import 'Pin_setup.dart';
 
 class PinSetup extends StatefulWidget {
   @override
@@ -66,7 +66,7 @@ class _PinSetupState extends State<PinSetup> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => RegisterationPage()),
+                        MaterialPageRoute(builder: (context) => Login()),
                       );
                     })
           ],
