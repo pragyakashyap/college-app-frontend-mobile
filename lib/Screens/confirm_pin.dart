@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/Screens/Registeration_screen%201.dart';
-import 'package:frontend/Screens/confirm_pin.dart';
 
-class PinPage extends StatefulWidget {
+import 'Registeration_screen 1.dart';
+
+class ConfirmPin extends StatefulWidget {
   @override
-  _PinPageState createState() => _PinPageState();
+  _ConfirmPinState createState() => _ConfirmPinState();
 }
 
-class _PinPageState extends State<PinPage> {
+class _ConfirmPinState extends State<ConfirmPin> {
   String finalPin = "1234";
   int _currentDigit;
   int _firstDigit;
@@ -17,69 +17,35 @@ class _PinPageState extends State<PinPage> {
   int _fourthDigit;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xff393e46),
-      body: Column(
-        // The top rectangle with the app name
-        children: [
-          Stack(
-            children: [
-              Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(25.0),
-                      child: Center(
-                        child: Text(
-                          "Almost Done",
-                          style: TextStyle(
-                            color: Color(0xfffa947e),
-                            fontSize: 20.0,
-                            fontFamily: 'Lato',
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30.0,
-                    ),
-                  ],
-                ),
-                width: MediaQuery.of(context).size.width,
-                height: 250.0,
-                decoration: ShapeDecoration(
-                  color: Color(0xff222831),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(40.0),
-                      bottomRight: Radius.circular(40.0),
-                    ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color(0xff393e46),
+        body: Center(
+          child: Container(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Confirm Your Pin',
+                    style: TextStyle(color: Color(0xFFFA947E), fontSize: 20.0),
                   ),
-                ),
-              ),
-            ],
-          ),
-          // The PinPage pin
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Text(
-              "Enter Your Pin",
-              style: TextStyle(
-                color: Color(0xfffa947e),
-                fontSize: 20.0,
+                  SizedBox(
+                    height: 24.0,
+                  ),
+                  printPinField(),
+                  SizedBox(
+                    height: 24.0,
+                  ),
+                  //The keypad to input the PinSetup pin
+                  keypad(),
+                ],
               ),
             ),
           ),
-          //The containers to input PinPage pin
-          printPinField(),
-          SizedBox(
-            height: 24.0,
-          ),
-          //The keypad to input the PinPage pin
-          keypad(),
-        ],
+        ),
       ),
     );
   }
@@ -189,12 +155,7 @@ class _PinPageState extends State<PinPage> {
                         CupertinoIcons.arrow_right_circle,
                         color: Colors.white,
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ConfirmPin()),
-                        );
-                      },
+                      onPressed: () {},
                     ),
                   ],
                 ),
