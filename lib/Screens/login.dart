@@ -1,22 +1,21 @@
-import 'package:flutter/cupertino.dart';
+import 'package:frontend/Screens/home.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/Screens/Registeration_screen%201.dart';
-import 'package:frontend/Screens/confirm_pin.dart';
 
-import 'username.dart';
-
-class PinPage extends StatefulWidget {
+class Login extends StatefulWidget {
+  String user;
+  Login(this.user);
   @override
-  _PinPageState createState() => _PinPageState();
+  _LoginState createState() => _LoginState();
 }
 
-class _PinPageState extends State<PinPage> {
+class _LoginState extends State<Login> {
   String finalPin = "1234";
   int _currentDigit;
   int _firstDigit;
   int _secondDigit;
   int _thirdDigit;
   int _fourthDigit;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,24 +32,33 @@ class _PinPageState extends State<PinPage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(25.0),
-                      child: Center(
-                        child: Text(
-                          "Almost Done",
-                          style: TextStyle(
-                            color: Color(0xfffa947e),
-                            fontSize: 20.0,
-                            fontFamily: 'Lato',
-                          ),
+                      child: Text(
+                        "App Name",
+                        style: TextStyle(
+                          color: Color(0xfffa947e),
+                          fontSize: 30.0,
+                          fontFamily: 'Lato',
                         ),
                       ),
                     ),
                     SizedBox(
                       height: 30.0,
                     ),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        "Welcome Back",
+                        style: TextStyle(
+                          color: Color(0xfffa947e),
+                          fontSize: 18.0,
+                          fontFamily: 'Lato',
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 width: MediaQuery.of(context).size.width,
-                height: 250.0,
+                height: MediaQuery.of(context).size.height * 0.28,
                 decoration: ShapeDecoration(
                   color: Color(0xff222831),
                   shape: RoundedRectangleBorder(
@@ -61,25 +69,58 @@ class _PinPageState extends State<PinPage> {
                   ),
                 ),
               ),
+              // The container with the user's name on it and image
+              Container(
+                alignment: Alignment.topCenter,
+                margin: EdgeInsets.fromLTRB(
+                    0, MediaQuery.of(context).size.height * 0.25, 0, 0),
+                child: new Container(
+                  height: 58,
+                  width: 313.0,
+                  decoration: ShapeDecoration(
+                    color: Color(0xff394352),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(15.0, 0, 0, 0),
+                        child: CircleAvatar(
+                          backgroundColor: Color(0xffc4c4c4),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20.0,
+                      ),
+                      Text(
+                        widget.user,
+                        style: TextStyle(
+                          color: Color(0xfffa947e),
+                          fontSize: 16.0,
+                          fontFamily: 'Lato',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
-          // The PinPage pin
+          // The login pin
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
-              "Enter Your Pin",
+              "Login Pin",
               style: TextStyle(
                 color: Color(0xfffa947e),
                 fontSize: 20.0,
               ),
             ),
           ),
-          //The containers to input PinPage pin
+          //The containers to input login pin
           printPinField(),
-          SizedBox(
-            height: 24.0,
-          ),
-          //The keypad to input the PinPage pin
           keypad(),
         ],
       ),
@@ -164,6 +205,15 @@ class _PinPageState extends State<PinPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     _pinKeyboardActionButton(
+                      label: Image.asset("assets/images/verified copy.png"),
+                      onPressed: () {},
+                    ),
+                    _pinKeyboardInputButton(
+                        label: "0",
+                        onPressed: () {
+                          _setCurrentDigit(0);
+                        }),
+                    _pinKeyboardActionButton(
                         label: new Icon(
                           Icons.backspace,
                           color: Colors.white,
@@ -181,23 +231,6 @@ class _PinPageState extends State<PinPage> {
                             }
                           });
                         }),
-                    _pinKeyboardInputButton(
-                        label: "0",
-                        onPressed: () {
-                          _setCurrentDigit(0);
-                        }),
-                    _pinKeyboardActionButton(
-                      label: Icon(
-                        CupertinoIcons.arrow_right_circle,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ConfirmPin()),
-                        );
-                      },
-                    ),
                   ],
                 ),
               ),
@@ -248,14 +281,18 @@ class _PinPageState extends State<PinPage> {
   }
 
   Widget printPinField() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        pinField(_firstDigit),
-        pinField(_secondDigit),
-        pinField(_thirdDigit),
-        pinField(_fourthDigit),
-      ],
+    return Center(
+      child: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            pinField(_firstDigit),
+            pinField(_secondDigit),
+            pinField(_thirdDigit),
+            pinField(_fourthDigit),
+          ],
+        ),
+      ),
     );
   }
 
@@ -280,7 +317,7 @@ class _PinPageState extends State<PinPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => EnterUserName(),
+              builder: (context) => HomePage(),
             ),
           );
         }
