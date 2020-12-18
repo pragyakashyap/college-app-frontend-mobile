@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Screens/Registeration_screen 1.dart';
+import 'Screens/entry.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,10 +9,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme:ThemeData(primaryColor: Color(0xFF03AFB7)),
+      theme: ThemeData(primaryColor: Color(0xFF03AFB7)),
       debugShowCheckedModeBanner: false,
       home: Material(
-        child: RegisterationPage(),
+        child: EntryPage(),
       ),
     );
   }

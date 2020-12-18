@@ -50,8 +50,8 @@ class _PinSetupState extends State<PinSetup> {
                 Container(
                   width: 270,
                   height: 50,
-                  color: Color(0xFF4E5561),
                   decoration: BoxDecoration(
+                    color: Color(0xFF4E5561),
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(25.0),
                   ),
