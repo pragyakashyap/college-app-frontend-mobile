@@ -1,14 +1,16 @@
-import 'package:frontend/Screens/login.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class EnterUserName extends StatefulWidget {
+  final Function goto;
+  final Function setUser;
+
+  const EnterUserName({Key key, this.goto, this.setUser}) : super(key: key);
   @override
   _EnterUserNameState createState() => _EnterUserNameState();
 }
 
 class _EnterUserNameState extends State<EnterUserName> {
-  String user = "Cynergy";
+  // String user = "";
   TextEditingController myController = TextEditingController();
 
   @override
@@ -97,19 +99,9 @@ class _EnterUserNameState extends State<EnterUserName> {
 
   void confirm() {
     print(myController.text);
-    if (myController.text == user) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => Login(user),
-        ),
-      );
-    } else {
-      showDialog(
-        context: context,
-        builder: (_) => showDialogBox(),
-      );
-    }
+    FocusScope.of(context).unfocus();
+    widget.setUser(myController.text);
+    widget.goto(1);
   }
 
   Widget showDialogBox() {

@@ -1,9 +1,12 @@
-import 'package:frontend/Screens/username.dart';
+import 'package:frontend/src/ui/username.dart';
 import 'package:flutter/material.dart';
 
 import 'Registeration_screen 1.dart';
 
 class EntryPage extends StatefulWidget {
+  final Function goto;
+
+  const EntryPage({Key key, this.goto}) : super(key: key);
   @override
   _EntryPageState createState() => _EntryPageState();
 }
@@ -41,12 +44,7 @@ class _EntryPageState extends State<EntryPage> {
                         bottomLeft: Radius.circular(15.0))),
                 color: Color(0xff4E5561),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => EnterUserName(),
-                    ),
-                  );
+                  widget.goto(0);
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -67,12 +65,7 @@ class _EntryPageState extends State<EntryPage> {
                         bottomRight: Radius.circular(15.0))),
                 color: Color(0xff4E5561),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => RegisterationPage(),
-                    ),
-                  );
+                  widget.goto(2);
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
