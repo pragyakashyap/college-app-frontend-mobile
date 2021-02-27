@@ -17,6 +17,7 @@ dependencies:
   flutter_bloc: ^6.0.1
   equatable: ^1.2.3
   http: ^0.12.2
+  hexcolor: ^2.0.0
 
 dev_dependencies:
   flutter_test:

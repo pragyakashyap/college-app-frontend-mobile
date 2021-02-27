@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend/src/bloc/auth/auth_bloc.dart';
+import 'package:frontend/src/ui/MessageScreen.dart';
 import 'package:frontend/src/ui/Registeration_screen%201.dart';
 import 'package:frontend/src/ui/Registeration_screen%202.dart';
 import 'package:frontend/src/ui/entry.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primaryColor: Color(0xFF03AFB7)),
       debugShowCheckedModeBanner: false,
       home: Material(
-        child: AppHome(),
+        child: MessageScreen(),
       ),
     );
   }
