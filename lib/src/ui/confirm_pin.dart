@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'Registeration_screen 1.dart';
 
 class ConfirmPin extends StatefulWidget {
@@ -28,10 +27,46 @@ class _ConfirmPinState extends State<ConfirmPin> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    'Confirm Your Pin',
-                    style: TextStyle(color: Color(0xFFFA947E), fontSize: 20.0),
+                  Stack(
+                    children: [
+                      Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(25.0),
+                              child: Center(
+                                child: Text(
+                                  "Confirm Your Pin",
+                                  style: TextStyle(
+                                    color: Color(0xFFFA947E),
+                                    fontSize: 20.0,
+                                    fontFamily: 'Lato',
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 30.0,
+                            ),
+                          ],
+                        ),
+                        width: MediaQuery.of(context).size.width,
+                        height: 250.0,
+                        decoration: ShapeDecoration(
+                          color: Color(0xff222831),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(40.0),
+                              bottomRight: Radius.circular(40.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
+
                   SizedBox(
                     height: 24.0,
                   ),
