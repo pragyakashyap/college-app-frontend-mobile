@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/Screens/Registeration_screen%201.dart';
-import 'package:frontend/Screens/confirm_pin.dart';
+import 'package:frontend/src/ui/confirm_pin.dart';
 
 import 'username.dart';
 
