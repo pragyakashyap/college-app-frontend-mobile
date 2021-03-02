@@ -17,16 +17,12 @@ class _ConfirmPinState extends State<ConfirmPin> {
   int _fourthDigit;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Color(0xff393e46),
-        body: Center(
-          child: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Stack(
+    return Scaffold(
+      backgroundColor: Color(0xff393e46),
+      body: Column(
+        // The top rectangle with the app name
+        children: [
+          Stack(
             children: [
               Container(
                 child: Column(
@@ -65,27 +61,19 @@ class _ConfirmPinState extends State<ConfirmPin> {
               ),
             ],
           ),
-                SizedBox(
-                  height: 24.0,
-                ),
-                printPinField(),
-                SizedBox(
-                  height: 24.0,
-                ),
-                //The keypad to input the PinSetup pin
-                keypad(),
-              ],
-            ),
-        
-                    ),
+          SizedBox(
+                    height: 24.0,
                   ),
-                ),
-          );
-        
-      
-    
+          printPinField(),
+          SizedBox(
+            height: 24.0,
+          ),
+          //The keypad to input the PinPage pin
+          keypad(),
+        ],
+      ),
+    );
   }
-
   Widget keypad() {
     return Expanded(
       child: Container(
